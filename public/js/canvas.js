@@ -1,13 +1,18 @@
 /**
  * Created by Stanley on 9/26/2015.
  */
+var context;
+var colorBrush = 'black';
 (function () {
     "use strict";
     var canvas = document.getElementById("kim");
     canvas.width = 780;
     canvas.height = 500;
-    var context = canvas.getContext("2d");
+    context = canvas.getContext("2d");
     var mouseIsDown = false;
+
+    //var colorBrush = 'black';
+
     //var counter = 0;
     //var ws = new WebSocket("ws://" + window.location.host + "/socket");
 
@@ -26,10 +31,10 @@
         var radius = 5;
         context.beginPath();
         context.arc(centerX, centerY, radius, 0, 2 * Math.PI, false);
-        context.fillStyle = 'black';
+        context.fillStyle = colorBrush;
         context.fill();
         context.lineWidth = 0;
-        context.strokeStyle = 'black';
+        context.strokeStyle = colorBrush;
         context.stroke();
     }
 

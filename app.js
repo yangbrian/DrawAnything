@@ -93,11 +93,21 @@ io.on('connection', function(client) {
   });
 
   client.on('draw', function(data) {
-    console.log("DRAW: " + data.x + ", " + data.y);
+    //console.log("DRAW: " + data.x + ", " + data.y);
     client.broadcast.emit('draw', data);
   })
 
 });
+
+//var can = document.getElementById('kim');
+//var ctx = can.getContext('2d');
+//var img = new Image();
+//img.src = can.toDataURL();
+
+//var base64Data = img.replace(/^data:image\/png;base64,/, "");
+//require("fs").writeFile("out.png", base64Data, 'base64', function(err) {
+//  console.log(err);
+//});
 
 //IMAGGA CODE START
 var unirest = require("unirest");
@@ -114,7 +124,11 @@ req.headers({
 req.end(function (res) {
   if (res.error) throw new Error(res.error);
 
-  console.log("Print: %j", res.body);
+  //console.log("Print: %j", res.body);
+
+  //chooses the top confidence tag
+  console.log(res.body.results[0].tags[0].confidence);
+
 });
 //IMAGGA CODE END
 

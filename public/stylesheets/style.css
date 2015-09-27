@@ -73,3 +73,17 @@ input[name="userGuess"] {
   margin-right: 5px;
 
 }
+
+.clrbtn {
+  margin-right: 5px;
+  margin-left: 5px;
+  margin-top: 5px;
+  margin-bottom: 5px
+}
+
+#colorButtonLabel {
+  margin-right: 5px;
+  margin-left: 40px;
+  margin-top: 5px;
+  margin-bottom: 5px
+}
