@@ -4,17 +4,18 @@ socket.on('connect', function(data) {
 });
 
 socket.on('guess', function(data) {
-    console.log('guessed');
+    toastr.info(data);
     $('#listOfGuesses').append('<li>' + data + '</li>');
 });
 
 socket.on('guessResult', function(data) {
     var value = $('input[name="userGuess"]').val();
     if(data == 'CORRECT') {
-        $('#correctGuess').append('<p>Correct! The answer was <b> ' + value + '</b>!</p>');
+        toastr.success('YOU GOT IT! The answer was <b> ' + value + '</b>!');
+        $('#listOfGuesses').append('<li class="success">YOU GOT IT! The answer was <b> ' + value + '</b>!</li>');
     }
     else {
-        $('#listOfGuesses').append('<li>You incorrectly guessed ' + value + '</li>');
+        $('#listOfGuesses').append('<li><strong>You</strong>: ' + value + '</li>');
     }
 
     $('input[name="userGuess"]').val('');

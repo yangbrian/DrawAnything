@@ -73,3 +73,8 @@ input[name="userGuess"] {
   margin-right: 5px;
 
 }
+
+.success {
+  color: #7fb626;
+  font-weight: bold;
+}
