@@ -38,16 +38,11 @@
 
     function mouseMove(evt) {
         if (mouseIsDown) {
-            //ws.send(JSON.stringify({
-            //    x: evt.pageX - left,
-            //    y: evt.pageY - top,
-            //}))
-            point(evt.pageX - left, evt.pageY - top - 4);
             socket.emit('draw', {
                 x: evt.pageX - left,
-                y: evt.pageY - top
+                y: evt.pageY - top - 4
             });
-            point(evt.pageX - left, evt.pageY - top);
+            point(evt.pageX - left, evt.pageY - top - 4);
         }
     }
 
