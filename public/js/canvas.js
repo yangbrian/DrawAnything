@@ -4,7 +4,7 @@
 (function () {
     "use strict";
     var canvas = document.getElementById("kim");
-    canvas.width = 900;
+    canvas.width = 780;
     canvas.height = 500;
     var context = canvas.getContext("2d");
     var mouseIsDown = false;
@@ -38,7 +38,7 @@
             //    x: evt.pageX - left,
             //    y: evt.pageY - top,
             //}))
-            point(evt.pageX - left, evt.pageY - top - 31);
+            point(evt.pageX - left, evt.pageY - top - 4);
         }
     }
 

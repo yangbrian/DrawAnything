@@ -3,15 +3,10 @@ extends layout
 block content
   h1= title
   p Welcome to #{title}. Press enter to submit.
-  //
-  //input#idName
-  //
-  //input.className.className2
 
   button#newWord(type='button') New Word
   div#guessThis
   input(class='form-control' type='text', name='nickname', placeholder='Nickname')
-  input(class='form-control' type='text', name='userGuess', placeholder='Enter your guess')
 
   div#pane
     div#guessDiv
@@ -19,5 +14,7 @@ block content
         div#guessBox
           ul#listOfGuesses
           div#correctGuess
-          input(id='input' type='text', name='userGuess', value = '')
+        input(class='form-control' type='text', name='userGuess', placeholder='Enter your guess')
     canvas#kim.border
+    div#userList.border
+    div#toolBox.border
