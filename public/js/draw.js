@@ -9,21 +9,39 @@ socket.on('guess', function(data) {
 });
 
 socket.on('guessResult', function(data) {
-    var value = $('#input').val();
+    var value = $('input[name="userGuess"]').val();
     if(data == 'CORRECT') {
         $('#correctGuess').append('<p>Correct! The answer was <b> ' + value + '</b>!</p>');
     }
     else {
-        $('#listOfGuesses').append('<li>' + value + '</li>');
+        $('#listOfGuesses').append('<li>You incorrectly guessed ' + value + '</li>');
     }
 
-    $('#input').val('');
+    $('input[name="userGuess"]').val('');
 });
 
 var guesses = [];
 
-
 $(document).ready(function() {
+
+    var nickname = $('input[name="nickname"]');
+    if(typeof(Storage) !== "undefined") {
+        if (!sessionStorage.drawAnythingName)
+            sessionStorage.drawAnythingName = 'Anonymous';
+        nickname.on('keyup', function(e) {
+            var code = e.keyCode || e.which;
+            if(code == 13) {
+                sessionStorage.drawAnythingName = $(this).val();
+
+                $(this).val('');
+            }
+
+        })
+
+        nickname.val(sessionStorage.drawAnythingName);
+    } else {
+        nickname.hide();
+    }
 
     //var randomWord = Math.random() * (words.length);
     //randomWord = parseInt(randomWord);
@@ -31,11 +49,11 @@ $(document).ready(function() {
     //console.log(words);
     //$('#guessThis').append('<p>' + words[randomWord] + '<p>');
 
-    $('#input').on('keyup', function(e) {
+    $('input[name="userGuess"]').on('keyup', function(e) {
         var code = e.keyCode || e.which;
         if(code == 13) {
 
-            socket.emit('guess', $(this).val());
+            socket.emit('guess', { guess: $(this).val(), name: sessionStorage.drawAnythingName });
 
             guesses.push($('#input').val());
             console.log(guesses);

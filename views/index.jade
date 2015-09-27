@@ -2,7 +2,7 @@ extends layout
 
 block content
   h1= title
-  p Welcome to #{title}
+  p Welcome to #{title}. Press enter to submit.
   //
   //input#idName
   //
@@ -12,7 +12,8 @@ block content
   div#guessThis
   div#canvas
   div#guessDiv
-    input(id='input' type='text', name='userGuess', value = '')
+    input(class='form-control' type='text', name='nickname', placeholder='Nickname')
+    input(class='form-control' type='text', name='userGuess', placeholder='Enter your guess')
     div#guessBox
       ul#listOfGuesses
       div#correctGuess

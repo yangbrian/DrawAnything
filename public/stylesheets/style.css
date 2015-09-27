@@ -1,7 +1,7 @@
 body {
   background: linear-gradient(lightblue, lightcyan);
   padding: 50px;
-  font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+  font: 14px Roboto, "Lucida Grande", Helvetica, Arial, sans-serif;
 }
 
 a {
@@ -14,4 +14,11 @@ a {
   border: 2px solid gray;
   box-shadow: 0 5px 10px black;
 
+}
+
+.form-control {
+  display: block;
+  padding: 5px;
+  margin: 10px 0;
+  font-size: 1.2em;
 }

@@ -75,14 +75,14 @@ io.on('connection', function(client) {
   });
 
   client.on('guess', function(data) {
-    console.log('User guessed ' + data + '\n');
+    console.log('User ' + data.name + ' guessed ' + data.guess + '\n');
 
-    if (data == currentWord) {
+    if (data.guess == currentWord) {
       client.emit('guessResult', 'CORRECT');
-      client.broadcast.emit('guess', 'A user guessed correctly!');
+      client.broadcast.emit('guess', data.name + ' guessed correctly!');
     } else {
       client.emit('guessResult', 'INCORRECT');
-      client.broadcast.emit('guess', data);
+      client.broadcast.emit('guess', data.name + ' guessed ' + data.guess);
     }
 
   });
@@ -94,7 +94,7 @@ io.on('connection', function(client) {
 
 });
 
-var Clarifai = require('./clarifai_node.js');
-Clarifai.initAPI("Cn-URyqYMXeYPe1WVhFI4mZKlPvxkxjjQ7ll8BiN", "nuxaMhk3fUNOXiFge0JQntLHkxxHQ_wyIkvxXVn9" );
+//var Clarifai = require('./clarifai_node.js');
+//Clarifai.initAPI("Cn-URyqYMXeYPe1WVhFI4mZKlPvxkxjjQ7ll8BiN", "nuxaMhk3fUNOXiFge0JQntLHkxxHQ_wyIkvxXVn9" );
 
 module.exports = app;
