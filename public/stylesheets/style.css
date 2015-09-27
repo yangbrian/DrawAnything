@@ -48,6 +48,20 @@ h1 {
   padding: 10px;
 }
 
+ul#listOfGuesses {
+  list-style: none;
+  padding-left: 0;
+}
+
+ul#listOfGuesses li {
+  padding: 13px 7px;
+  border-bottom: 1px solid #bbb;
+}
+
+ul#listOfGuesses li:nth-child(even) {
+  background-color: #ddd;
+}
+
 input[name="nickname"] {
   width: 190px;
 }
