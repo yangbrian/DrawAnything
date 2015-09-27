@@ -94,4 +94,7 @@ io.on('connection', function(client) {
 
 });
 
+var Clarifai = require('./clarifai_node.js');
+Clarifai.initAPI("Cn-URyqYMXeYPe1WVhFI4mZKlPvxkxjjQ7ll8BiN", "nuxaMhk3fUNOXiFge0JQntLHkxxHQ_wyIkvxXVn9" );
+
 module.exports = app;
