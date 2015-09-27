@@ -79,10 +79,10 @@ io.on('connection', function(client) {
 
     if (data.guess == currentWord) {
       client.emit('guessResult', 'CORRECT');
-      client.broadcast.emit('guess', data.name + ' guessed correctly!');
+      client.broadcast.emit('guess', '<span class="success">' + data.name + ' guessed correctly!</span>');
     } else {
       client.emit('guessResult', 'INCORRECT');
-      client.broadcast.emit('guess', data.name + ' guessed ' + data.guess);
+      client.broadcast.emit('guess', '<strong>' + data.name + '</strong>: ' + data.guess);
     }
 
   });
