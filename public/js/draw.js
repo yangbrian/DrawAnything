@@ -101,6 +101,7 @@ $(document).ready(function() {
         clearInterval(counter);
         count = 120;
         counter=setInterval(timer, 1000);
+        socket.emit('clear');
     })
 
     var can = document.getElementById('kim');
