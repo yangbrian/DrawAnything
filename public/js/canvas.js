@@ -17,6 +17,10 @@
     //}
     //ws.onmessage = messageReceived;
 
+    socket.on('draw', function(data) {
+        point(data.x, data.y);
+    });
+
     //function drawPoint(centerX, centerY) {
     function point(centerX, centerY) {
         var radius = 5;
@@ -34,10 +38,10 @@
 
     function mouseMove(evt) {
         if (mouseIsDown) {
-            //ws.send(JSON.stringify({
-            //    x: evt.pageX - left,
-            //    y: evt.pageY - top,
-            //}))
+            socket.emit('draw', {
+                x: evt.pageX - left,
+                y: evt.pageY - top
+            });
             point(evt.pageX - left, evt.pageY - top);
         }
     }

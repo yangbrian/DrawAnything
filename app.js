@@ -92,6 +92,11 @@ io.on('connection', function(client) {
     console.log('The new word is: ' + currentWord + '\n');
   });
 
+  client.on('draw', function(data) {
+    console.log("DRAW: " + data.x + ", " + data.y);
+    client.broadcast.emit('draw', data);
+  })
+
 });
 
 //IMAGGA CODE START
