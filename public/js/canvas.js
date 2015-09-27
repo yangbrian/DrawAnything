@@ -3,6 +3,7 @@
  */
 var context;
 var colorBrush = 'black';
+var radius = 5;
 (function () {
     "use strict";
     var canvas = document.getElementById("kim");
@@ -28,7 +29,7 @@ var colorBrush = 'black';
 
     //function drawPoint(centerX, centerY) {
     function point(centerX, centerY) {
-        var radius = 5;
+        //var radius = 5;
         context.beginPath();
         context.arc(centerX, centerY, radius, 0, 2 * Math.PI, false);
         context.fillStyle = colorBrush;

@@ -102,5 +102,21 @@ $(document).ready(function() {
     $('#whiteButton').on('click', function() {
         colorBrush = 'white'
     })
+
+    $('#smallButton').on('click', function() {
+        radius = 2
+    })
+
+    $('#mediumButton').on('click', function() {
+        radius = 5
+    })
+
+    $('#largeButton').on('click', function() {
+        radius = 8
+    })
+
+    $('#hugeButton').on('click', function() {
+        radius = 11
+    })
 });
 
