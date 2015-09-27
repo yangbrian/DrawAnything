@@ -15,3 +15,14 @@ a {
   box-shadow: 0 5px 10px black;
 
 }
+#kim {
+  float: left;
+  margin-right: 10px;
+}
+
+#chatBox {
+  //float: right;
+  width: 300px;
+  height:500px;
+  overflow: scroll;
+}

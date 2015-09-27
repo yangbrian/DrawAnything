@@ -4,7 +4,7 @@
 (function () {
     "use strict";
     var canvas = document.getElementById("kim");
-    canvas.width = 1000;
+    canvas.width = 900;
     canvas.height = 500;
     var context = canvas.getContext("2d");
     var mouseIsDown = false;
