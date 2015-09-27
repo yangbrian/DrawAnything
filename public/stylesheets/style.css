@@ -120,3 +120,15 @@ input[name="userGuess"] {
   margin-top: 5px;
   margin-bottom: 5px
 }
+
+.topbtn {
+  margin-right: 5px;
+  margin-left: 5px;
+  margin-top: 5px;
+  margin-bottom: 5px
+}
+
+#timer {
+  text-align: center;
+  margin: auto;
+}

@@ -4,7 +4,10 @@ block content
   h1= title
   p Welcome to #{title}. Press enter to submit.
 
-  button#newWord(type='button') New Word
+  div#timer
+  div
+    button#newWord.btn.topbtn New Word
+    button#clearCanvas.btn.topbtn Clear Canvas
   div#guessThis
   input(class='form-control' type='text', name='nickname', placeholder='Nickname')
 
