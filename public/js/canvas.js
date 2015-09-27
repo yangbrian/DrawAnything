@@ -4,9 +4,10 @@
 var context;
 var colorBrush = 'black';
 var radius = 5;
+var canvas;
 (function () {
     "use strict";
-    var canvas = document.getElementById("kim");
+    canvas = document.getElementById("kim");
     canvas.width = 780;
     canvas.height = 500;
     context = canvas.getContext("2d");
