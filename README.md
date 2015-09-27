@@ -1,2 +1,4 @@
-# DrawSomething
-HackNY Fall 2015 project with Node.js and Socket.io
+# Draw Anything
+Inspired by pictionary and similar online games, this is a multiplayer pictionary game made using Node.js and Socket.io.
+
+HackNY Fall 2015 project by Stanley Chen, Kevin Li, and Brian Yang.
