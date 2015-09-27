@@ -1,5 +1,5 @@
-var socket = io.connect('http://draw-anything.herokuapp.com');
-//var socket = io.connect('http://localhost:3000');
+//var socket = io.connect('http://draw-anything.herokuapp.com');
+var socket = io.connect('http://localhost:3000');
 socket.on('connect', function(data) {
     socket.emit('join', 'Hello World from client');
 });
@@ -11,6 +11,10 @@ socket.on('guess', function(data) {
 
 socket.on('currentWord', function(data) {
    $('#currentDraw').html('Current word is ' + data);
+});
+
+socket.on('clear', function() {
+    context.clearRect(0, 0, canvas.width, canvas.height);
 });
 
 socket.on('guessResult', function(data) {
@@ -154,7 +158,8 @@ $(document).ready(function() {
 
     $('#clearCanvas').on('click', function() {
         context.clearRect(0, 0, canvas.width, canvas.height);
-    })
+        socket.emit('clear');
+    });
 
     //setTimeout(context.clearRect(0, 0, canvas.width, canvas.height), 5000);
 

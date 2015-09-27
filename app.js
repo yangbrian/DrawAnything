@@ -112,6 +112,7 @@ io.on('connection', function(client) {
 
   client.on('clear', function() {
     canvas = [];
+    client.broadcast.emit('clear');
   });
 
 });
