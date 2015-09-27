@@ -85,6 +85,7 @@ input[name="userGuess"] {
   width: 200px;
   height: 285px;
   margin-right: 5px;
+  overflow: auto;
 
 }
 

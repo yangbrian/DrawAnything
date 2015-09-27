@@ -55,11 +55,11 @@ var canvas;
         if (mouseIsDown) {
             socket.emit('draw', {
                 x: evt.pageX - left,
-                y: evt.pageY - top - 4,
+                y: evt.pageY - top - 17,
                 color: colorBrush,
                 radius: radius
             });
-            point(evt.pageX - left, evt.pageY - top - 4);
+            point(evt.pageX - left, evt.pageY - top - 17);
         }
     }
 
