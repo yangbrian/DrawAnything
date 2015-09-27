@@ -98,3 +98,10 @@ io.on('connection', function(client) {
 //Clarifai.initAPI("Cn-URyqYMXeYPe1WVhFI4mZKlPvxkxjjQ7ll8BiN", "nuxaMhk3fUNOXiFge0JQntLHkxxHQ_wyIkvxXVn9" );
 
 module.exports = app;
+
+//{
+//  "access_token": "lDrKqzZQ0V3mSuCZcOoRTVoNxjeE6g",
+//    "token_type": "Bearer",
+//    "expires_in": 36000,
+//    "scope": "api_access_write api_access api_access_read"
+//}
