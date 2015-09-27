@@ -22,10 +22,10 @@
         var radius = 5;
         context.beginPath();
         context.arc(centerX, centerY, radius, 0, 2 * Math.PI, false);
-        context.fillStyle = 'green';
+        context.fillStyle = 'black';
         context.fill();
         context.lineWidth = 0;
-        context.strokeStyle = 'green';
+        context.strokeStyle = 'black';
         context.stroke();
     }
 
@@ -38,7 +38,7 @@
             //    x: evt.pageX - left,
             //    y: evt.pageY - top,
             //}))
-            point(evt.pageX - left, evt.pageY - top);
+            point(evt.pageX - left, evt.pageY - top - 31);
         }
     }
 

@@ -1,6 +1,6 @@
 body {
   background: linear-gradient(lightblue, lightcyan);
-  padding: 50px;
+  padding: 30px;
   font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
 }
 
@@ -16,13 +16,14 @@ a {
 
 }
 #kim {
-  float: left;
+  float: right;
   margin-right: 10px;
 }
 
 #chatBox {
-  //float: right;
+  float: right;
   width: 300px;
   height:500px;
   overflow: scroll;
 }
+
