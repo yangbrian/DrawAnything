@@ -92,9 +92,57 @@ io.on('connection', function(client) {
     console.log('The new word is: ' + currentWord + '\n');
   });
 
+  client.on('draw', function(data) {
+    console.log("DRAW: " + data.x + ", " + data.y);
+    client.broadcast.emit('draw', data);
+  })
+
 });
 
+//IMAGGA CODE START
+var unirest = require("unirest");
+var req = unirest("GET", "http://api.imagga.com/v1/tagging");
+req.query({
+  "url": "http://playground.imagga.com/static/img/example_photo.jpg",
+  "version": "2"
+});
+req.headers({
+  "authorization": "Basic YWNjXzk3OTRlNzllYzc3NTI3ZjplOWViNTk0ZGEwYTVkYjdmMDZiYzZhYjc5NjJhZWIzZg==",
+  "accept": "application/json"
+});
+
+req.end(function (res) {
+  if (res.error) throw new Error(res.error);
+
+  console.log("Print: %j", res.body);
+});
+//IMAGGA CODE END
+
+
+
+//CLARIFAI CODE START
 //var Clarifai = require('./clarifai_node.js');
 //Clarifai.initAPI("Cn-URyqYMXeYPe1WVhFI4mZKlPvxkxjjQ7ll8BiN", "nuxaMhk3fUNOXiFge0JQntLHkxxHQ_wyIkvxXVn9" );
+//
+//var unirest1 = require("unirest");
+//var req1 = unirest1("GET", "https://api.clarifai.com/v1/tag/");
+//req1.query({
+//  "url": "http://www.clarifai.com/img/metro-north.jpg",
+//  "version": "2"
+//});
+//req1.headers({
+//  "authorization": "Basic lDrKqzZQ0V3mSuCZcOoRTVoNxjeE6g",
+//  "accept": "application/json"
+//});
+//
+//req1.end(function (res1) {
+//  if (res1.error) throw new Error(res1.error);
+//
+//  console.log("Print: %j", res1.body);
+//});
+//CLARIFAI CODE END
+
+
 
 module.exports = app;
+
