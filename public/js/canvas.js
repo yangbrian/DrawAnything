@@ -25,9 +25,15 @@ var canvas;
     //ws.onmessage = messageReceived;
 
     socket.on('draw', function(data) {
+        var oldRadius = radius;
+        var oldColor = colorBrush;
+
         radius = data.radius;
         colorBrush = data.color;
         point(data.x, data.y);
+
+        colorBrush = oldColor;
+        radius = oldRadius;
     });
 
     //function drawPoint(centerX, centerY) {
@@ -58,11 +64,13 @@ var canvas;
     }
 
     canvas.addEventListener("mousedown", function () {
+        //if (!drawer) return;
         mouseIsDown = true;
         canvas.addEventListener("mousemove", mouseMove);
     });
 
     window.addEventListener("mouseup", function () {
+        //if (!drawer) return;
         mouseIsDown = false;
         canvas.removeEventListener("mousemove", mouseMove)
     });

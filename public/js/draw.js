@@ -1,4 +1,5 @@
-var socket = io.connect('http://draw-anything.herokuapp.com');
+//var socket = io.connect('http://draw-anything.herokuapp.com');
+var socket = io.connect('http://localhost:3000');
 socket.on('connect', function(data) {
     socket.emit('join', 'Hello World from client');
 });
@@ -6,6 +7,10 @@ socket.on('connect', function(data) {
 socket.on('guess', function(data) {
     toastr.info(data);
     $('#listOfGuesses').append('<li>' + data + '</li>');
+});
+
+socket.on('currentWord', function(data) {
+   $('#currentDraw').html('Current word is ' + data);
 });
 
 socket.on('guessResult', function(data) {
@@ -23,26 +28,49 @@ socket.on('guessResult', function(data) {
 
 var guesses = [];
 
+var drawer = false;
+
 $(document).ready(function() {
 
     var nickname = $('input[name="nickname"]');
-    if(typeof(Storage) !== "undefined") {
-        if (!sessionStorage.drawAnythingName)
-            sessionStorage.drawAnythingName = 'Anonymous';
-        nickname.on('keyup', function(e) {
-            var code = e.keyCode || e.which;
-            if(code == 13) {
-                sessionStorage.drawAnythingName = $(this).val();
+    //if(typeof(Storage) !== "undefined") {
+    if (!sessionStorage.drawAnythingName)
+        sessionStorage.drawAnythingName = 'Anonymous';
+    nickname.on('keyup', function(e) {
+        var code = e.keyCode || e.which;
+        if(code == 13) {
+            sessionStorage.drawAnythingName = $(this).val();
 
-                $(this).val('');
-            }
+            $(this).val('');
+        }
 
-        })
+    })
 
-        nickname.val(sessionStorage.drawAnythingName);
-    } else {
-        nickname.hide();
-    }
+    nickname.val(sessionStorage.drawAnythingName);
+
+    //if (!sessionStorage.playerType)
+    //    sessionStorage.playerType = 'guesser';
+    //
+    //$('#makeDraw').on('click', function() {
+    //    drawer = true;
+    //    $('#currentDraw').show();
+    //    $(this).prop('disabled', true);
+    //    $('#makeDrawer').removeAttr('disabled');
+    //    $('#currentRole').html('You are now a drawer.');
+    //});
+    //
+    //$('#makeGuess').on('click', function() {
+    //    drawer = false;
+    //    $('#currentDraw').hide();
+    //    $(this).prop('disabled', true);
+    //    $('#makeDrawer').removeAttr('disabled');
+    //    $('#currentRole').html('You are now a guesser.');
+    //});
+    //} else {
+    //    nickname.hide();
+    //}
+
+
 
     //var randomWord = Math.random() * (words.length);
     //randomWord = parseInt(randomWord);

@@ -72,6 +72,8 @@ io.on('connection', function(client) {
   client.on('join', function(data) {
     //console.log(data);
     client.emit('messages', 'Hello from server');
+
+    client.emit('currentWord', currentWord);
   });
 
   client.on('guess', function(data) {
@@ -90,6 +92,9 @@ io.on('connection', function(client) {
   client.on('newWord', function(data) {
     currentWord = words[parseInt(Math.random() * (words.length))];
     console.log('The new word is: ' + currentWord + '\n');
+
+    client.emit('currentWord', currentWord);
+    client.broadcast.emit('currentWord', currentWord);
   });
 
   client.on('draw', function(data) {
