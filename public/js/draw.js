@@ -1,6 +1,13 @@
-/**
- * Created by Kevin on 9/26/2015.
- */
+var socket = io.connect('http://localhost:3000');
+socket.on('connect', function(data) {
+    socket.emit('join', 'Hello World from client');
+});
+
+socket.on('guess', function(data) {
+    console.log('guessed');
+    $('#listOfGuesses').append('<li>' + data + '</li>');
+});
+
 var guesses = [];
 var words = ['dog', 'cat', 'pizza', 'donut', 'ice cream']
 
@@ -16,6 +23,8 @@ $(document).ready(function() {
         var code = e.keyCode || e.which;
         if(code == 13) {
 
+            socket.emit('guess', $(this).val());
+
             guesses.push($('#input').val());
             console.log(guesses);
 
@@ -30,3 +39,4 @@ $(document).ready(function() {
         }
     });
 });
+
