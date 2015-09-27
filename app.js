@@ -65,6 +65,8 @@ var words = ['time', 'issue', 'year', 'side', 'people', 'kind', 'way', 'head', '
 var currentWord = 'house';
 console.log('The current word is: ' + currentWord + '\n');
 
+var canvas = [];
+
 // Socket
 io.on('connection', function(client) {
   //console.log('Client connected...');
@@ -74,6 +76,11 @@ io.on('connection', function(client) {
     client.emit('messages', 'Hello from server');
 
     client.emit('currentWord', currentWord);
+
+    for (var i = 0; i < canvas.length; i++) {
+      client.emit('draw', canvas[i]);
+    }
+
   });
 
   client.on('guess', function(data) {
@@ -100,7 +107,12 @@ io.on('connection', function(client) {
   client.on('draw', function(data) {
     //console.log("DRAW: " + data.x + ", " + data.y);
     client.broadcast.emit('draw', data);
-  })
+    canvas.push(data);
+  });
+
+  client.on('clear', function() {
+    canvas = [];
+  });
 
 });
 
