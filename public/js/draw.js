@@ -66,5 +66,42 @@ $(document).ready(function() {
     $('#newWord').on('click', function() {
         socket.emit('newWord');
     })
+
+    var can = document.getElementById('kim');
+    var ctx = can.getContext('2d');
+    var img = new Image();
+    img.src = can.toDataURL();
+
+    $('#redButton').on('click', function() {
+        colorBrush = 'red'
+    })
+
+    $('#blueButton').on('click', function() {
+        colorBrush = 'blue'
+    })
+
+    $('#greenButton').on('click', function() {
+        colorBrush = 'green'
+    })
+
+    $('#blackButton').on('click', function() {
+        colorBrush = 'black'
+    })
+
+    $('#yellowButton').on('click', function() {
+        colorBrush = 'yellow'
+    })
+
+    $('#orangeButton').on('click', function() {
+        colorBrush = 'orange'
+    })
+
+    $('#purpleButton').on('click', function() {
+        colorBrush = 'purple'
+    })
+
+    $('#whiteButton').on('click', function() {
+        colorBrush = 'white'
+    })
 });
 
