@@ -24,6 +24,8 @@ var radius = 5;
     //ws.onmessage = messageReceived;
 
     socket.on('draw', function(data) {
+        radius = data.radius;
+        colorBrush = data.color;
         point(data.x, data.y);
     });
 
@@ -46,7 +48,9 @@ var radius = 5;
         if (mouseIsDown) {
             socket.emit('draw', {
                 x: evt.pageX - left,
-                y: evt.pageY - top - 4
+                y: evt.pageY - top - 4,
+                color: colorBrush,
+                radius: radius
             });
             point(evt.pageX - left, evt.pageY - top - 4);
         }
